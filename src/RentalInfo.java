@@ -2,14 +2,30 @@
  * Kelas POJO (Plain Old Java Object) yang berfungsi sebagai model data.
  * Kelas ini menyimpan semua informasi dasar terkait satu transaksi sewa.
  *
- * @param customerName Nama lengkap pelanggan yang menyewa.
- * @param motorType    Tipe atau model motor yang disewa (misal: "Yamaha NMAX").
- * @param rentalDays   Durasi total penyewaan dalam satuan hari.
- * @param pricePerDay  Biaya sewa motor per hari, sebelum pajak.
  * @author [Isi Nama Anda Di Sini]
  * @version 1.0
  */
-public record RentalInfo(String customerName, String motorType, int rentalDays, double pricePerDay) {
+public class RentalInfo {
+
+    /**
+     * Nama lengkap pelanggan yang menyewa.
+     */
+    private final String customerName;
+
+    /**
+     * Tipe atau model motor yang disewa (misal: "Yamaha NMAX").
+     */
+    private final String motorType;
+
+    /**
+     * Durasi total penyewaan dalam satuan hari.
+     */
+    private final int rentalDays;
+
+    /**
+     * Biaya sewa motor per hari, sebelum pajak.
+     */
+    private final double pricePerDay;
 
     /**
      * Konstruktor untuk membuat objek RentalInfo baru.
@@ -20,7 +36,11 @@ public record RentalInfo(String customerName, String motorType, int rentalDays, 
      * @param rentalDays   Lama sewa (hari).
      * @param pricePerDay  Harga sewa per hari.
      */
-    public RentalInfo {
+    public RentalInfo(String customerName, String motorType, int rentalDays, double pricePerDay) {
+        this.customerName = customerName;
+        this.motorType = motorType;
+        this.rentalDays = rentalDays;
+        this.pricePerDay = pricePerDay;
     }
 
     // --- Kumpulan Getter untuk mengambil data ---
@@ -30,8 +50,7 @@ public record RentalInfo(String customerName, String motorType, int rentalDays, 
      *
      * @return String nama pelanggan.
      */
-    @Override
-    public String customerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
@@ -40,8 +59,7 @@ public record RentalInfo(String customerName, String motorType, int rentalDays, 
      *
      * @return String tipe motor.
      */
-    @Override
-    public String motorType() {
+    public String getMotorType() {
         return motorType;
     }
 
@@ -50,8 +68,7 @@ public record RentalInfo(String customerName, String motorType, int rentalDays, 
      *
      * @return int jumlah hari sewa.
      */
-    @Override
-    public int rentalDays() {
+    public int getRentalDays() {
         return rentalDays;
     }
 
@@ -60,8 +77,7 @@ public record RentalInfo(String customerName, String motorType, int rentalDays, 
      *
      * @return double harga sewa per hari.
      */
-    @Override
-    public double pricePerDay() {
+    public double getPricePerDay() {
         return pricePerDay;
     }
 }

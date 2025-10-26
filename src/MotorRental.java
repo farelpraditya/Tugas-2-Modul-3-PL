@@ -47,7 +47,7 @@ public class MotorRental {
      * @return double harga final yang harus dibayar.
      */
     public double calculateTotalPrice() {
-        double total = rentalInfo.rentalDays() * rentalInfo.pricePerDay();
+        double total = rentalInfo.getRentalDays() * rentalInfo.getPricePerDay();
         double tax = calculateTax(total);
         return total + tax;
     }
@@ -58,10 +58,10 @@ public class MotorRental {
      */
     public void displayRentalInfo() {
         System.out.println("===== RENTAL INFORMATION =====");
-        System.out.println("Customer Name: " + rentalInfo.customerName());
-        System.out.println("Motor Type: " + rentalInfo.motorType());
-        System.out.println("Rental Days: " + rentalInfo.rentalDays());
-        System.out.println("Price per Day: Rp " + rentalInfo.pricePerDay());
+        System.out.println("Customer Name: " + rentalInfo.getCustomerName());
+        System.out.println("Motor Type: " + rentalInfo.getMotorType());
+        System.out.println("Rental Days: " + rentalInfo.getRentalDays());
+        System.out.println("Price per Day: Rp " + rentalInfo.getPricePerDay());
         System.out.println("Total Price (+Tax): Rp " + calculateTotalPrice());
         System.out.println("===============================");
     }
